@@ -46,9 +46,13 @@ func NewApiClient(optionFuncs ...ClientOptionFunc) (*Client, error) {
 		} else {
 			appTransport, err = ghinstallation.NewKeyFromFileWithAppID(existingTransport, options.GitHubAppID, options.GitHubAppInstallationID, options.GitHubAppPemFilePath)
 		}
-
+		
 		if err != nil {
 			return nil, fmt.Errorf("failed to create transport from GitHub App: %v", err)
+		}
+
+		if options.BaseURL != "" {
+			appTransport.BaseURL = options.BaseURL
 		}
 
 		netHttpClient.Transport = appTransport
