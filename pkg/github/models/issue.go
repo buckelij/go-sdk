@@ -338,19 +338,19 @@ func (m *Issue) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388
         return nil
     }
     res["labels"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfPrimitiveValues("string")
-        if err != nil {
-            return err
-        }
-        if val != nil {
-            res := make([]string, len(val))
-            for i, v := range val {
-                if v != nil {
-                    res[i] = *(v.(*string))
-                }
-            }
-            m.SetLabels(res)
-        }
+        // val, err := n.GetCollectionOfPrimitiveValues("string")
+        // if err != nil {
+        //     return err
+        // }
+        // if val != nil {
+        //     res := make([]string, len(val))
+        //     for i, v := range val {
+        //         if v != nil {
+        //             res[i] = *(v.(*string))
+        //         }
+        //     }
+        //     m.SetLabels(res)
+        // }
         return nil
     }
     res["labels_url"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
